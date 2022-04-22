@@ -1,11 +1,13 @@
-def solution(phoneBook):
-    phoneBook = sorted(phoneBook) # sorted : 새로운 정렬된 iterable 리스트로 만들어 반환
+# 동일 문자 비교 문제
+# 1. phone_book을 오름차순으로 재구성한다 (sorted 사용)
+# 2. 1번째 요소와 그 이후 요소를 index별로 짝을 맞춰준다. (hash)
+# 3. 알파벳을 비교한다. (startswith)
+# 4. True, False는 대문자로 사용
 
-    for p1, p2 in zip(phoneBook, phoneBook[1:]): # zip 사용하면 앞글자에 맞추어 정렬이 됨
-                                                 # zip() : 함수 안의 리스트, 튜플, 문자열에 대해 각 요소를 index 순으로 짝지어 주는 함수
-                                                 # 반환값이 list가 아니기 때문에 for문에 대입하는게 아니라면 list 처리 해줘야함
-                                                 # index가 0부터 시작하지 않으므로 모든 경우의 수를 반복함
-        if p2.startswith(p1): # startswith : p2가 p1로 시작하면 True, 그렇지 않으면 False 반환
-                              # 두 매개변수 중 뒤에것과 앞에것의 일치 여부를 비교
+def solution(phone_book):
+    phone_book = sorted(phone_book)  # sorted : 오름차순으로 list 재구성
+    for a, b in zip(phone_book, phone_book[1:]):  # index 순으로 list 생성, index 수가 다르므로 모든 경우의수 반복함.
+
+        if b.startswith(a):
             return False
-    return True
+        return True  # False가 아닌 경우 True 리턴

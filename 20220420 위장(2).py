@@ -1,5 +1,6 @@
 from collections import Counter
 from functools import reduce
+
 def solution(clothes):
     # 1. 의상을 종류별로 분류한다.
     counter=Counter([type for clothe, type in clothes]) # Counter에는 list를 해줘야함

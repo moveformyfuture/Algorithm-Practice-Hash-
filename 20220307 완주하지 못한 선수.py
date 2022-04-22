@@ -1,6 +1,12 @@
-import collections # Counter 함수를 쓰기 위해 호출
+#1. 리스트의 '-' 연산 --> collections의 Counter 함수 사용
+#2. Counter : 문자열이나 list의 요소를 카운팅하여, 많은 순으로 dic형태로 리턴한다.
+#3. Counter : dic처럼 keys : values 형태로 자료형을 구성해줌
+#4. Counter : 문자열의 '-'연산이 가능
+#5. Counter는 list화 해줘야 함
+
+import collections
 
 def solution(participant, completion):
-    answer = collections.Counter(participant)-collections.Counter(completion) # Counter() : dic처럼 key와 value로 만들어줌
-                                                                              # Counter() 를 사용해야 객체끼리 빼기 연산 가능
-    return list(answer.keys())[0] # keys()함수 사용해 key만 호출, list화해서 남아있는 key 반환
+    answer = collections.Counter(participant) - collections.Counter(completion)
+
+    return list(answer)[0]
